@@ -1,0 +1,33 @@
+.main {
+  padding: 20px;
+  background-color: var(--Background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main .greeting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50vw;
+}
+.main .greeting h1 {
+  font-family: var(--home-font);
+  font-size: 3rem;
+  color: var(--Navbar-color);
+}
+.main .greeting p {
+  font-family: var(--home-font);
+  font-size: 2rem;
+  color: var(--Navbar-color);
+}
+.main .video {
+  margin-top: 20px;
+}
+.main .video video {
+  width: 50vw;
+  height: auto;
+  border-radius: 5px;
+}/*# sourceMappingURL=Home.module.css.map */
