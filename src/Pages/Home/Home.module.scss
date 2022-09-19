@@ -1,0 +1,37 @@
+.main {
+  padding: 20px;
+  background-color: var(--Background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .greeting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+
+    h1 {
+      font-family: var(--home-font);
+      font-size: 3rem;
+      color: var(--Navbar-color);
+    }
+
+    p {
+      font-family: var(--home-font);
+      font-size: 2rem;
+      color: var(--Navbar-color);
+    }
+  }
+
+  .video {
+    margin-top: 20px;
+    video {
+      width: 50vw;
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+}
