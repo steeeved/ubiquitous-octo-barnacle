@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+:root {
+  --Navbar-color: #002d62;
+  --Background-color: #f0f8ff;
+
+  --MainCard-color: #7cb9e8;
+  --LeftCard-color: #72a0c1;
+  --BottomCard-color: #6cb4ee;
+  --BottomLeftCard-color: #0066b2;
+
+  --navBar-font: 'Montserrat', sans-serif;
+  --home-font: 'Reem Kufi Fun', cursive;
+  --main-font: 'Poiret One', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
