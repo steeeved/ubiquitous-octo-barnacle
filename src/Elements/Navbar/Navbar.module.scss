@@ -1,0 +1,16 @@
+nav {
+  height: 70px;
+  background-color: var(--Navbar-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 0 5px 0, rgba(0, 0, 0, 0.24) 0 0 5px 0;
+
+  h1 {
+    font-family: var(--navBar-font);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: white;
+  }
+}
