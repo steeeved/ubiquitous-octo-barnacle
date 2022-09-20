@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
+
 import { Navbar } from './Elements';
 import { Home, About, Weather } from './Pages';
 import { ILongLat } from './Elements/Types';
 
 function App() {
-  console.log('App page rendered');
   const [longLat, setLongLat] = useState<ILongLat>({
-    longitude: 0,
-    latitude: 0
+    longitude: 90,
+    latitude: 90
   });
 
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function App() {
       longitude: position.coords.longitude,
       latitude: position.coords.latitude
     });
+    navigate('/weather');
   };
   const errorCallback = (error: any) => {
     console.log(error);
@@ -33,7 +34,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/weather' element={<Weather />} />
+        <Route path='/weather' element={<Weather longLat={longLat} />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </div>
