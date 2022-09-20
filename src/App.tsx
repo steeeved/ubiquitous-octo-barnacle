@@ -6,7 +6,7 @@ import { Home, About, Weather } from './Pages';
 import { ILongLat } from './Elements/Types';
 
 function App() {
-  const [isError, setIsError] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
   const [longLat, setLongLat] = useState<ILongLat>({
     longitude: 0.04295,
     latitude: 36.368519
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar isError={ isError} />
       <Routes>
         <Route
           path='/'
