@@ -1,10 +1,12 @@
-.main {
-  padding: 20px;
-  background-color: var(--Background-color);
+.mainG {
+  padding-top: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease;
 
   .greeting {
     display: flex;
@@ -26,8 +28,64 @@
     }
   }
 
+  .noError{
+    display: none;
+  }
+
+  .error {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    width: 50vw;
+    background-color: var(--Navbar-color);
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.6rem;
+      color: var(--Background-color);
+      cursor: pointer;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 5px;
+      border-left: 3px solid var(--Background-color);
+      border-radius: 2px;
+      height: 60px;
+    
+      svg {
+        fill: var(--Background-color);
+      }
+
+      p {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--home-font);
+        font-size: 1.3rem;
+        color: var(--Background-color);
+        padding-left: 5px;
+        text-align: center;
+        
+        span {
+          color: var(--span-color);
+          text-align: left;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
   .video {
-    margin-top: 20px;
+    align-items: center;
+    padding: 10px;
     video {
       width: 50vw;
       height: auto;
