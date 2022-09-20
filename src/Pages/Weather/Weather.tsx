@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
-import Styles from './Weather.module.scss';
-import CloudIcon from '@mui/icons-material/Cloud';
-// import weather from '../../data';
-import { ILongLat } from '../../Elements/Types';
-import axios from 'axios';
 import { useQuery } from 'react-query';
+import axios from 'axios';
+// import weather from '../../data';
+
+import { ILongLat } from '../../Elements/Types';
+import Styles from './Weather.module.scss';
+
+import CloudIcon from '@mui/icons-material/Cloud';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
+import ModeNightIcon from '@mui/icons-material/ModeNight';
 
 interface props {
   longLat: ILongLat;
 }
 
 export const Weather = (props: props) => {
+  const [loaded, setLoaded] = useState<boolean>(false);
   const {
     longLat: { longitude, latitude }
   } = props;
@@ -31,18 +37,19 @@ export const Weather = (props: props) => {
       const { data } = await axios.request(options);
       setWeather(data.data[0]);
     }
-    
-    //const { data, isLoading, isError } = useQuery('weather', getWeather);
+
     getWeather();
   }, [longitude, latitude]);
 
-  // console.log(weather[0].rh);
-  
+  useEffect(() => {
+    const checkLoaded = setTimeout(() => {
+      setLoaded(true);
+    }, 10000);
+    return () => clearTimeout(checkLoaded);
+  }, []);
 
-  //props:unknown
-  //const {weather} = props;
+  const date = new Date();
   function getTime() {
-    const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const aMpM = hours >= 12 ? 'PM' : 'AM';
@@ -70,13 +77,38 @@ export const Weather = (props: props) => {
     }
   }
 
-  if (weather === null) {
+  const checkWeather = () => {
+    if (date.getHours() < 6 || date.getHours() > 18) {
+      return <ModeNightIcon />;
+    } else {
+      if (weather.clouds < 40) {
+        return <WbSunnyIcon />;
+      }
+      if (weather.clouds >= 40 && weather.clouds < 70) {
+        return <CloudIcon />;
+      }
+      if (weather.clouds >= 70) {
+        return <ThunderstormIcon />;
+      }
+    }
+  };
+
+  if (weather === null && loaded === false) {
     return (
       <div className={Styles.loader}>
         <span className={Styles.loader__element}></span>
         <span className={Styles.loader__element}></span>
         <span className={Styles.loader__element}></span>
       </div>
+    );
+  }
+
+  if (loaded === true && weather === null) {
+    console.log('Did not load');
+    return (
+      <h1 className={Styles.errorMsg}>
+        Weather app is experiencing a high demand now. Please try again later.
+      </h1>
     );
   }
 
@@ -91,7 +123,7 @@ export const Weather = (props: props) => {
             </div>
 
             <div className={Styles.temp}>
-              <CloudIcon />
+              {checkWeather()}
               <h2>{weather.temp}°c</h2>
             </div>
 
