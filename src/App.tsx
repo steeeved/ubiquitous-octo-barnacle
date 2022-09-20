@@ -28,6 +28,7 @@ function App() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
