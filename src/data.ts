@@ -7,7 +7,7 @@ const weather = {
   timezone: 'Africa/Nairobi',
   ob_time: '2022-09-18 22:34',
   country_code: 'KE',
-  clouds: 0,
+  clouds: 80,
   ts: 1663540490,
   solar_rad: 0,
   state_code: '38',
