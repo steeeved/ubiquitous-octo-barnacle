@@ -8,13 +8,20 @@
   --LeftCard-color: #72a0c1;
   --BottomCard-color: #6cb4ee;
   --BottomLeftCard-color: #0066b2;
+  --span-color: #c37e07;
   --navBar-font: "Montserrat", sans-serif;
   --home-font: "Reem Kufi Fun", cursive;
   --main-font: "Poiret One", cursive;
+  --size: 5px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
 }/*# sourceMappingURL=index.css.map */
