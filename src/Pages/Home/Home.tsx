@@ -1,10 +1,8 @@
 import video from './rain.mp4';
 import Styles from './Home.module.scss';
 
-import ErrorIcon from '@mui/icons-material/Error';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { useState, useRef } from 'react';
 import classNames from 'classnames';
 
 // create an interface for the isError prop and setIsError function
