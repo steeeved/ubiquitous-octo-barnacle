@@ -1,11 +1,46 @@
+import { useState, useEffect } from 'react';
 import Styles from './Weather.module.scss';
 import CloudIcon from '@mui/icons-material/Cloud';
-import { useContext } from 'react';
-import { WeatherContext } from '../../Context/weatherContext';
+// import weather from '../../data';
+import { ILongLat } from '../../Elements/Types';
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
-export const Weather = () => {
-  const weather = useContext(WeatherContext);
+interface props {
+  longLat: ILongLat;
+}
 
+export const Weather = (props: props) => {
+  const {
+    longLat: { longitude, latitude }
+  } = props;
+  const [weather, setWeather] = useState<any>(null);
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://weatherbit-v1-mashape.p.rapidapi.com/currentt',
+      params: { lon: `${longitude}`, lat: `${latitude}` },
+      headers: {
+        'X-RapidAPI-Key': '3b32d1897bmshd900876b274af28p1d46e5jsn0a440868f822',
+        'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'
+      }
+    };
+
+    async function getWeather() {
+      const { data } = await axios.request(options);
+      setWeather(data.data[0]);
+    }
+    
+    //const { data, isLoading, isError } = useQuery('weather', getWeather);
+    getWeather();
+  }, [longitude, latitude]);
+
+  // console.log(weather[0].rh);
+  
+
+  //props:unknown
+  //const {weather} = props;
   function getTime() {
     const date = new Date();
     const hours = date.getHours();
@@ -35,12 +70,15 @@ export const Weather = () => {
     }
   }
 
-  const files = [
-    {
-      name: 'Cloud',
-      icon: <CloudIcon />
-    }
-  ];
+  if (weather === null) {
+    return (
+      <div className={Styles.loader}>
+        <span className={Styles.loader__element}></span>
+        <span className={Styles.loader__element}></span>
+        <span className={Styles.loader__element}></span>
+      </div>
+    );
+  }
 
   return (
     <div className={Styles.main}>
@@ -51,54 +89,88 @@ export const Weather = () => {
               <h1>{weather.weather.description}</h1>
               <h2>{getTime()}</h2>
             </div>
+
             <div className={Styles.temp}>
-              <div className={Styles.img}>
-                <CloudIcon />
-              </div>
-              <h2>{weather.temp}</h2>
+              <CloudIcon />
+              <h2>{weather.temp}°c</h2>
             </div>
+
             <div className={Styles.cCoverage}>
-              <h2>{weather.clouds}% Total cloud coverage</h2>
+              <h2>
+                <span>{weather.clouds}%</span> Total cloud coverage
+              </h2>
             </div>
           </div>
+
           <div className={Styles.topCardRight}>
-            <h2>{weather.wind_cdir_full}</h2>
-            <h2>{weather.wind_spd}m/s</h2>
+            <h2>
+              Wind Direction: <span>{weather.wind_cdir}</span>
+            </h2>
+            <h2>
+              Wind Speed: <span> {weather.wind_spd}m/s</span>
+            </h2>
+            <h2>
+              Elevation Angle: <span> {weather.elev_angle}°</span>
+            </h2>
+            <h2>
+              UV Index: <span> {weather.uv}</span>
+            </h2>
           </div>
         </div>
         <div className={Styles.rightCard}>
-          <div className={Styles.city}>
-            <h1>{weather.city_name}</h1>
+          <div className={Styles.div}>
+            <h1>
+              City: <span>{weather.city_name}</span>
+            </h1>
           </div>
-          <div className={Styles.long}>
-            <h1>Latitude:{weather.lon}</h1>
+          <div className={Styles.div}>
+            <h1>
+              Latitude: <span>{weather.lon}</span>
+            </h1>
           </div>
-          <div className={Styles.lat}>
-            <h1>Latitude:{weather.lon}</h1>
+          <div className={Styles.div}>
+            <h1>
+              Latitude: <span>{weather.lon}</span>
+            </h1>
           </div>
-          <div className={Styles.timezone}>
-            <h1>{weather.timezone}</h1>
+          <div className={Styles.div}>
+            <h1>
+              Timezone: <span>{weather.timezone}</span>
+            </h1>
           </div>
         </div>
       </div>
 
       <div className={Styles.bottom}>
         <div className={Styles.bottomLeftCard}>
-          <div className={Styles.left}>
-            <h3>Relative Humidity: {weather.rh}</h3>
-            <h3>Visibility: {weather.vis} (default KM)</h3>
-            <h3>Radiation: {weather.dhi} (W/m^2)</h3>
+          <div className={Styles.div}>
+            <h3>
+              Relative Humidity: <span>{weather.rh}</span>
+            </h3>
+            <h3>
+              Visibility: <span>{weather.vis}(default KM)</span>
+            </h3>
+            <h3>
+              Radiation: <span>{weather.dhi}(W/m^2)</span>
+            </h3>
           </div>
-          <div className={Styles.right}>
-            <h3>Sea Level Pressure {weather.slp}(mb)</h3>
-            <h3>Maximum Uv: {weather.uv}</h3>
-            <h3>Accumulated Snow: {weather.snow}(mm)</h3>
+          <div className={Styles.div}>
+            <h3>
+              Sea Level Pressure: <span>{weather.slp}(mb)</span>
+            </h3>
+            <h3>
+              Maximum Uv: <span>{weather.uv}</span>
+            </h3>
+            <h3>
+              Accumulated Snow: <span>{weather.snow}(mm)</span>
+            </h3>
           </div>
         </div>
+
         <div className={Styles.bottomRightCard}>
           <h1>UV Index Interpretation</h1>
           <p>
-            A UV index of <span>2</span> {UVScale()}
+            A UV index of <span>{weather.uv}</span> {UVScale()}
           </p>
         </div>
       </div>
