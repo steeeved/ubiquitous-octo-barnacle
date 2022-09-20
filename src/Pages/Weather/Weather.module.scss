@@ -5,74 +5,265 @@
   align-items: baseline;
 }
 
+:root {
+  --main-color: #ecf0f1;
+  --point-color: #555;
+  
+}
+
+.loader {
+  background-color: var(--Navbar-color);
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  z-index: 100000;
+}
+
+.loader__element {
+  border-radius: 100%;
+  border: var(--size) solid var(--Background-color);
+  margin: calc(var(--size) * 2);
+}
+
+.loader__element:nth-child(1) {
+  animation: preloader 0.6s ease-in-out alternate infinite;
+}
+.loader__element:nth-child(2) {
+  animation: preloader 0.6s ease-in-out alternate 0.2s infinite;
+}
+
+.loader__element:nth-child(3) {
+  animation: preloader 0.6s ease-in-out alternate 0.4s infinite;
+}
+
+@keyframes preloader {
+  100% {
+    transform: scale(2);
+  }
+}
+
 .main {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  width: 100vw;
+  justify-content: flex-start;
+  width: 100%;
   height: 100%;
-  padding: 2em;
+  padding: 1em 2em;
   background-color: var(--Background-color);
+  gap: 10px;
 
   .top {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 40%;
+    gap: 5%;
 
     .topCard {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 50% 45%;
       background-color: var(--MainCard-color);
       box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
         rgba(0, 0, 0, 0.15) 0px 1px 3px 1px;
-      border: 1px solid black;
+      // border: 1px solid black;
       border-radius: 3px;
+      gap: 5%;
 
       .topCardLeft {
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between;
 
         .CW {
           padding: 5px;
           display: flex;
           flex-direction: column;
-          align-items: baseline;
           justify-content: flex-start;
-          width: 100%;
+          letter-spacing: 1.2px;
 
           h1 {
             font-family: var(--main-font);
             font-size: 2em;
-            color: white;
+            color: var(--span-color);
+            font-weight: 700;
           }
 
           h2 {
             font-family: var(--main-font);
             font-size: 1.2em;
-            color: white;
+            color: var(--span-color);
+            font-weight: 700;
           }
         }
 
         .temp {
+          display: grid;
+          grid-template-columns: 50% 50%;
+          align-items: center;
+          justify-content: flex-end;
+          width: 100%;
           padding: 5px;
-          @include flex(row);
 
-          .img {
-            width: 150px;
-            height: 150px;
-            @include flex(row);
-            align-items: baseline;
-
-            * {
-              width: 100%;
-              height: 100%;
-            }
+          svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--Navbar-color);
+            align-self: baseline;
           }
 
           h2 {
-            font-family: var(--home-font);
-            font-size: 2em;
-            color: white;
+            line-height: 1.07;
+            font-family: var(--main-font);
+            font-size: 60px;
+            color: black;
+            text-align: center;
+            font-stretch: ultra-condensed;
+            transform: scaleX(0.9);
+            transform: scaleY(2.2);
+            bottom: 0;
           }
+        }
+
+        .cCoverage {
+          padding: 10px;
+          width: 100%;
+          background-color: var(--BottomLeftCard-color);
+          border-radius: 0px 3px 0px 3px;
+
+          h2 {
+            font-family: var(--main-font);
+            font-size: 1.5em;
+            color: black;
+
+            span {
+              color: var(--span-color);
+            }
+          }
+        }
+      }
+
+      .topCardRight {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: 35px;
+        gap: 20px;
+
+        h2 {
+          font-family: var(--home-font);
+          font-size: 25px;
+          width: 100%;
+          color: black;
+          text-align: center;
+          text-align: left;
+
+          span {
+            font-size: 20px;
+            text-align: right;
+            color: var(--span-color);
+          }
+        }
+      }
+    }
+
+    .rightCard {
+      background: var(--LeftCard-color);
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+        rgba(0, 0, 0, 0.15) 0px 1px 3px 1px;
+      border-radius: 3px;
+      @include flex(column);
+      justify-content: space-around;
+      padding: 10px;
+
+      .div {
+        background: var(--Background-color);
+        width: 100%;
+        border-radius: 2px;
+        padding-left: 5px;
+
+        h1 {
+          font-family: var(--home-font);
+          font-size: 25px;
+          color: black;
+
+          span {
+            font-size: 20px;
+            color: var(--span-color);
+          }
+        }
+      }
+    }
+  }
+
+  .bottom {
+    display: grid;
+    grid-template-columns: 50% 40%;
+    gap: 5%;
+    padding-top: 10px;
+
+    .bottomLeftCard {
+      background: var(--BottomLeftCard-color);
+      height: auto;
+      padding: 16px;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+        rgba(0, 0, 0, 0.15) 0px 1px 3px 1px;
+      border-radius: 3px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+
+      .div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        h3 {
+          width: 100%;
+          font-family: var(--home-font);
+          font-size: 20px;
+          background-color: var(--MainCard-color);
+          padding: 5px;
+          border-radius: 3px;
+
+          span {
+            color: var(--span-color);
+          }
+        }
+      }
+    }
+
+    .bottomRightCard {
+      background-color: var(--BottomCard-color);
+      display: block;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px,
+        rgba(0, 0, 0, 0.15) 0px 1px 3px 1px;
+      border-radius: 3px;
+
+      h1 {
+        text-align: center;
+        font-family: var(--home-font);
+        font-size: 30px;
+        border-bottom: 3px solid var(--BottomLeftCard-color);
+      }
+
+      p {
+        padding: 10px;
+        font-family: var(--home-font);
+        font-size: 20px;
+
+        span {
+          color: var(--span-color);
+          // underline: 1px solid var(--span-color);
+          text-decoration: underline;
         }
       }
     }
