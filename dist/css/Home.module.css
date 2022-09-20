@@ -1,32 +1,82 @@
-.main {
-  padding: 20px;
-  background-color: var(--Background-color);
+.mainG {
+  padding-top: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s ease;
 }
-.main .greeting {
+.mainG .greeting {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 50vw;
 }
-.main .greeting h1 {
+.mainG .greeting h1 {
   font-family: var(--home-font);
   font-size: 3rem;
   color: var(--Navbar-color);
 }
-.main .greeting p {
+.mainG .greeting p {
   font-family: var(--home-font);
   font-size: 2rem;
   color: var(--Navbar-color);
 }
-.main .video {
-  margin-top: 20px;
+.mainG .noError {
+  display: none;
 }
-.main .video video {
+.mainG .error {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+  width: 50vw;
+  background-color: var(--Navbar-color);
+  position: relative;
+  border-radius: 5px;
+  padding: 10px;
+}
+.mainG .error .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.6rem;
+  color: var(--Background-color);
+  cursor: pointer;
+}
+.mainG .error .info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 5px;
+  border-left: 3px solid var(--Background-color);
+  border-radius: 2px;
+  height: 60px;
+}
+.mainG .error .info svg {
+  fill: var(--Background-color);
+}
+.mainG .error .info p {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--home-font);
+  font-size: 1.3rem;
+  color: var(--Background-color);
+  padding-left: 5px;
+  text-align: center;
+}
+.mainG .error .info p span {
+  color: var(--span-color);
+  text-align: left;
+  font-size: 1rem;
+}
+.mainG .video {
+  align-items: center;
+  padding: 10px;
+}
+.mainG .video video {
   width: 50vw;
   height: auto;
   border-radius: 5px;
