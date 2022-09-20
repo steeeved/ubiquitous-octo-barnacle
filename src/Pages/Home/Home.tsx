@@ -1,8 +1,6 @@
 import video from './rain.mp4';
 import Styles from './Home.module.scss';
-
 import CloseIcon from '@mui/icons-material/Close';
-
 import classNames from 'classnames';
 
 // create an interface for the isError prop and setIsError function
