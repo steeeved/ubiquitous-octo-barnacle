@@ -13,4 +13,7 @@ nav h1 {
   font-weight: 600;
   letter-spacing: 3px;
   color: white;
+}
+nav .barColor {
+  color: red;
 }/*# sourceMappingURL=Navbar.module.css.map */
