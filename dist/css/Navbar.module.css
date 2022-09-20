@@ -1,5 +1,6 @@
 nav {
   height: 70px;
+  width: 100%;
   background-color: var(--Navbar-color);
   display: flex;
   align-items: center;
