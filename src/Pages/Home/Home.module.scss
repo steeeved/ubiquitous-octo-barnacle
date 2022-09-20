@@ -1,3 +1,5 @@
+
+
 .mainG {
   padding-top: 10px;
   display: flex;
@@ -60,13 +62,14 @@
       border-left: 3px solid var(--Background-color);
       border-radius: 2px;
       height: 60px;
-    
+      
       svg {
         padding: 5px;
         fill: var(--Background-color);
       }
-
+      
       p {
+        position: absolute;
         display: flex;
         flex-direction: column;
         font-family: var(--home-font);
