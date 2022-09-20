@@ -1,4 +1,4 @@
-const data = {
+const weather = {
   wind_cdir: 'ESE',
   rh: 88,
   pod: 'n',
@@ -37,4 +37,6 @@ const data = {
   weather: { icon: 'c01n', code: 800, description: 'Clear sky' },
   station: 'E1071'
 };
-export default data;
+
+export default weather;
+
