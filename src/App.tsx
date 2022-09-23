@@ -23,7 +23,7 @@ function App() {
   };
   const errorCallback = (error: any) => {
     setIsError(true);
-    console.log(isError);
+    console.log(error);
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
           path='/'
           element={<Home isError={isError} setIsError={setIsError} />}
         />
-        <Route path='/weather' element={<Weather longLat={longLat} />} />
+        {isError === false && <Route path='/weather' element={<Weather longLat={longLat} />} />}
         <Route path='/about' element={<About />} />
       </Routes>
     </div>
