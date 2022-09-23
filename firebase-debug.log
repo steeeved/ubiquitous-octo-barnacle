@@ -1,0 +1,14 @@
+[debug] [2022-09-23T06:35:38.845Z] ----------------------------------------------------------------------
+[debug] [2022-09-23T06:35:38.849Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Muchendu\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-23T06:35:38.851Z] CLI Version:   11.9.0
+[debug] [2022-09-23T06:35:38.851Z] Platform:      win32
+[debug] [2022-09-23T06:35:38.852Z] Node Version:  v16.15.0
+[debug] [2022-09-23T06:35:38.854Z] Time:          Fri Sep 23 2022 09:35:38 GMT+0300 (East Africa Time)
+[debug] [2022-09-23T06:35:38.854Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-23T06:35:38.955Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-23T06:35:38.956Z] > authorizing via signed-in user (muchendumaina66@gmail.com)
+[debug] [2022-09-23T06:35:38.956Z] [iam] checking project weatherapp-f1969 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions [none]
+[debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions x-goog-quota-user=projects/weatherapp-f1969
+[debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
