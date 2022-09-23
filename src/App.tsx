@@ -23,12 +23,17 @@ function App() {
   };
   const errorCallback = (error: any) => {
     setIsError(true);
+    navigate('/');
     console.log(error);
   };
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (
+      window.confirm('Please enable location services to use this app.') == true
+    ) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
   }, []);
 
   return (
