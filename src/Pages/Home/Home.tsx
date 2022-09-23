@@ -13,8 +13,6 @@ interface IHomeProps {
 export const Home = (props: IHomeProps) => {
   const { isError, setIsError } = props;
 
-  console.log('Home page rendered');
-
   const errorClasses = classNames({
     [Styles.error]: isError === true,
     [Styles.noError]: isError === false
