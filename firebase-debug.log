@@ -12,3 +12,73 @@
 [debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions [none]
 [debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions x-goog-quota-user=projects/weatherapp-f1969
 [debug] [2022-09-23T06:35:38.960Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-23T06:35:42.198Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions 200
+[debug] [2022-09-23T06:35:42.199Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/weatherapp-f1969:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-23T06:35:42.207Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 [none]
+[debug] [2022-09-23T06:35:43.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 200
+[debug] [2022-09-23T06:35:43.066Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 {"projectId":"weatherapp-f1969","projectNumber":"59271512844","displayName":"weatherApp","name":"projects/weatherapp-f1969","resources":{"hostingSite":"weatherapp-f1969"},"state":"ACTIVE","etag":"1_d518ce37-c33b-40f3-85e0-b9c6caf7dd3c"}
+[info] 
+[info] === Deploying to 'weatherapp-f1969'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-09-23T06:35:43.084Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 [none]
+[debug] [2022-09-23T06:35:45.257Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 200
+[debug] [2022-09-23T06:35:45.257Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/weatherapp-f1969 {"projectId":"weatherapp-f1969","projectNumber":"59271512844","displayName":"weatherApp","name":"projects/weatherapp-f1969","resources":{"hostingSite":"weatherapp-f1969"},"state":"ACTIVE","etag":"1_d518ce37-c33b-40f3-85e0-b9c6caf7dd3c"}
+[debug] [2022-09-23T06:35:45.263Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions [none]
+[debug] [2022-09-23T06:35:45.263Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-09-23T06:35:48.062Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions 200
+[debug] [2022-09-23T06:35:48.063Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions {"name":"projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[weatherapp-f1969]: beginning deploy... 
+[info] i  hosting[weatherapp-f1969]: found 14 files in build 
+[debug] [2022-09-23T06:35:48.129Z] [hosting] uploading with 200 concurrency
+[debug] [2022-09-23T06:35:48.150Z] [hosting] hash cache [YnVpbGQ] stored for 14 files
+[debug] [2022-09-23T06:35:48.150Z] [hosting][hash queue][FINAL] {"max":4,"min":1,"avg":1,"active":0,"complete":14,"success":14,"errored":0,"retried":0,"total":14,"elapsed":7}
+[debug] [2022-09-23T06:35:48.156Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0:populateFiles [none]
+[debug] [2022-09-23T06:35:48.156Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0:populateFiles {"files":{"/asset-manifest.json":"bd612504f5607e84e0ee5072197d3a6d065a781c241332a0a39baf56f908c918","/favicon.ico":"eae62e993eb980ec8a25058c39d5a51feab118bd2100c4deebb2a9c158ec11f9","/index.html":"748444959998f3ba58951dea6a5d2bbce0b1d3f304b1cc0b2b2eec499298fe56","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo2.png":"7e6d8845230a1dfcf96e79bd2393b571a57ea1c4e3f4b16825de63af401ead7e","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.f53d9052.css":"1e8efeeb485164158f569ffb61b81e4f74806eda0487f71d16e3e384cbf4b5d7","/static/css/main.f53d9052.css.map":"2d7d38d4851a7f1222ad52a49ff8d55a089159b4cfe199b55db4604348451a1f","/static/js/main.877c10ec.js":"56e4274f5e0be22c7fe2acb2bb2f246ec1ac89f872e4f57566b1692903030b8b","/static/js/main.877c10ec.js.LICENSE.txt":"f4a9820e92d6633cae89deef9f05cf64fb866831f544d12458c9e8308c756143","/static/js/main.877c10ec.js.map":"e68ff77d1bf4eec5615b00727a5285fd27444bab177adf72c454eadd586e6fa4","/static/media/rain.7e46950ef2f4a5a137fd.mp4":"274de8cf7e9c62cc826f9a4bb17de768a29de553446512560cc2575f79afcfd2"}}
+[debug] [2022-09-23T06:35:50.679Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0:populateFiles 200
+[debug] [2022-09-23T06:35:50.679Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/weatherapp-f1969/versions/4338ed08f04923b0/files"}
+[debug] [2022-09-23T06:35:50.680Z] [hosting][populate queue][FINAL] {"max":2533,"min":2533,"avg":2533,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2533}
+[debug] [2022-09-23T06:35:50.680Z] [hosting] uploads queued: 0
+[debug] [2022-09-23T06:35:50.681Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1663914950681}
+[info] +  hosting[weatherapp-f1969]: file upload complete 
+[debug] [2022-09-23T06:35:50.682Z] [hosting] deploy completed after 2610ms
+[debug] [2022-09-23T06:35:50.692Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "weatherapp-f1969"
+    },
+    "site": "weatherapp-f1969",
+    "version": "projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0"
+  }
+]
+[info] i  hosting[weatherapp-f1969]: finalizing version... 
+[debug] [2022-09-23T06:35:50.694Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0 updateMask=status%2Cconfig
+[debug] [2022-09-23T06:35:50.694Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-09-23T06:35:52.767Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0 200
+[debug] [2022-09-23T06:35:52.768Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0 {"name":"projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-23T06:35:53.042841Z","createUser":{"email":"muchendumaina66@gmail.com"},"finalizeTime":"2022-09-23T06:35:58.280125Z","finalizeUser":{"email":"muchendumaina66@gmail.com"}}
+[debug] [2022-09-23T06:35:52.769Z] [hosting] finalized version for weatherapp-f1969:[object Object]
+[info] +  hosting[weatherapp-f1969]: version finalized 
+[info] i  hosting[weatherapp-f1969]: releasing new version... 
+[debug] [2022-09-23T06:35:52.777Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/releases versionName=projects%2F59271512844%2Fsites%2Fweatherapp-f1969%2Fversions%2F4338ed08f04923b0
+[debug] [2022-09-23T06:35:52.777Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/releases {"message":null}
+[debug] [2022-09-23T06:35:54.653Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/releases 200
+[debug] [2022-09-23T06:35:54.653Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/59271512844/sites/weatherapp-f1969/releases {"name":"projects/59271512844/sites/weatherapp-f1969/releases/1663914959529588","version":{"name":"projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-23T06:35:53.042841Z","createUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"},"finalizeTime":"2022-09-23T06:35:58.280125Z","finalizeUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"}},"type":"DEPLOY","releaseTime":"2022-09-23T06:35:59.529588890Z","releaseUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"}}
+[debug] [2022-09-23T06:35:54.653Z] [hosting] release: {"name":"projects/59271512844/sites/weatherapp-f1969/releases/1663914959529588","version":{"name":"projects/59271512844/sites/weatherapp-f1969/versions/4338ed08f04923b0","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-23T06:35:53.042841Z","createUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"},"finalizeTime":"2022-09-23T06:35:58.280125Z","finalizeUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"}},"type":"DEPLOY","releaseTime":"2022-09-23T06:35:59.529588890Z","releaseUser":{"email":"muchendumaina66@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu2LXdJbmXs1dDDBzLUZTwKT14uFnxQCGO0RJZphEw=mo"}}
+[info] +  hosting[weatherapp-f1969]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/weatherapp-f1969/overview
+[info] Hosting URL: https://weatherapp-f1969.web.app
