@@ -3,19 +3,21 @@ import Styles from './Home.module.scss';
 import CloseIcon from '@mui/icons-material/Close';
 import classNames from 'classnames';
 
+import {useState } from 'react';
+
 // create an interface for the isError prop and setIsError function
 interface IHomeProps {
   isError: boolean;
   setIsError: (isError: boolean) => void;
 }
 
-
 export const Home = (props: IHomeProps) => {
   const { isError, setIsError } = props;
+  const [showError, setShowError] = useState<boolean>(true);
 
   const errorClasses = classNames({
-    [Styles.error]: isError === true,
-    [Styles.noError]: isError === false
+    [Styles.error]: showError === true,
+    [Styles.noError]: showError === false
   })
 
   const greeting = () => {
@@ -41,6 +43,11 @@ export const Home = (props: IHomeProps) => {
   const month = date.toLocaleString('default', { month: 'long' });
   const year = date.getFullYear();
 
+  function toggleClose() {
+    setShowError(false);
+    console.log('clicked');
+  }
+
   return (
     <div className={Styles.mainG}>
       <div className={Styles.greeting}>
@@ -51,7 +58,7 @@ export const Home = (props: IHomeProps) => {
       </div>
 
       <div className={errorClasses}>
-        <div className={Styles.close} onClick={() => {setIsError(false)}}>
+        <div className={Styles.close} onMouseDown={toggleClose}>
           <CloseIcon />
         </div>
         <div className={Styles.info}>
