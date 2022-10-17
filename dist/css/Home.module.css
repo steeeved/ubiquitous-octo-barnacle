@@ -8,12 +8,28 @@
   width: 100%;
   transition: all 0.5s ease;
 }
+@media (max-width: 768px) {
+  .mainG {
+    margin: 0;
+    padding: 10px;
+    height: 100%;
+  }
+}
 .mainG .greeting {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 50vw;
+}
+@media (max-width: 768px) {
+  .mainG .greeting {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin-bottom: 30px;
+  }
 }
 .mainG .greeting h1 {
   font-family: var(--home-font);
@@ -38,6 +54,12 @@
   border-radius: 5px;
   padding: 10px;
 }
+@media (max-width: 768px) {
+  .mainG .error {
+    width: 70%;
+    height: 100px;
+  }
+}
 .mainG .error .close {
   position: absolute;
   top: 0;
@@ -60,6 +82,7 @@
   fill: var(--Background-color);
 }
 .mainG .error .info p {
+  position: absolute;
   display: flex;
   flex-direction: column;
   font-family: var(--home-font);
